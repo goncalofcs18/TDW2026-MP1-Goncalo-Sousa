@@ -6,11 +6,10 @@ on:
   # Contentful calls the GitHub API when content is published or unpublished.
   repository_dispatch:
     types: [contentful-update]
-  # Daily run at 00:00 UTC. Turned off so it does not use up the free GitHub
-  # Actions minutes. My test run never started, so it is not confirmed.
-  # Uncomment to turn it back on.
-  # schedule:
-  #   - cron: "0 0 * * *"
+  # Daily run at 00:00 UTC. The brief says to turn it off after confirming that
+  # it works. My test run never started, so I am leaving it on for now.
+  schedule:
+    - cron: "0 0 * * *"
 
 permissions:
   contents: read
