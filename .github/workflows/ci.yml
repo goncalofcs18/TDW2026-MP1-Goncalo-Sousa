@@ -3,6 +3,13 @@ name: CI
 on:
   push:
   pull_request:
+  # Contentful calls the GitHub API when content is published or unpublished.
+  repository_dispatch:
+    types: [contentful-update]
+  schedule:
+    - cron: "0 0 * * *" # every day at 00:00 UTC
+    # TEMPORARY: confirms the schedule trigger works. Removed in the next PR.
+    - cron: "*/10 * * * *"
 
 permissions:
   contents: read
